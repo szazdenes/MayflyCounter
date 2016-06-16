@@ -8,6 +8,8 @@ CounterForm::CounterForm(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    zoom = 1;
+
     connect(ui->imageGraphicsView, &ImageGraphicsViewForm::signalWheelScrolledDown, this, &CounterForm::slotWheelScrolledDown);
     connect(ui->imageGraphicsView, &ImageGraphicsViewForm::signalWheelScrolledUp, this, &CounterForm::slotWheelScrolledUp);
     connect(ui->imageGraphicsView, &ImageGraphicsViewForm::signalMouseMoved, this, &CounterForm::slotMouseMoved);
@@ -81,22 +83,14 @@ void CounterForm::slotLeftButtonPressed(QPointF pos)
 
 void CounterForm::slotWheelScrolledUp()
 {
-    setImageSize(1.1);
-    /*if((ui->mayflyCheckBox->isChecked() || ui->chironomidaeCheckBox->isChecked()) && penSize < ui->imageGraphicsView->height()/2.0){
-        penSize *= 1.1;
-        setCursorImage(penSize);
-    }*/
-
+    if(zoom < 3)
+        setImageSize(1.1);
 }
 
 void CounterForm::slotWheelScrolledDown()
 {
-    setImageSize(0.9);
-    /*if((ui->mayflyCheckBox->isChecked() || ui->chironomidaeCheckBox->isChecked()) && penSize > 15){
-        penSize *= 0.9;
-        setCursorImage(penSize);
-    }*/
-
+    if(zoom > 0.1)
+        setImageSize(0.9);
 }
 
 void CounterForm::slotDialogAccepted()
@@ -199,6 +193,8 @@ void CounterForm::on_chironomidaeCheckBox_toggled(bool checked)
 
 void CounterForm::on_loadPushButton_clicked()
 {
+    ui->imageGraphicsView->scale(1.0/zoom, 1.0/zoom);
+    zoom =1;
     openFileName = QFileDialog::getOpenFileName(this, QDir::currentPath());
     currentImage = QImage(openFileName);
     mask = QImage(currentImage.size(), QImage::Format_ARGB32);
@@ -206,7 +202,10 @@ void CounterForm::on_loadPushButton_clicked()
     mask2 = QImage(ui->imageGraphicsView->viewport()->size(), QImage::Format_ARGB32);
     mask2.fill(Qt::transparent);
     penSize = (double)currentImage.height() / 50.0;
-    zoom =1;
+
+    ui->zoomVerticalSlider->setMinimum(10);
+    ui->zoomVerticalSlider->setMaximum((int)(ui->imageGraphicsView->height()/2.0));
+    ui->zoomVerticalSlider->setValue((int)((double)currentImage.height() / 50.0));
 
     refreshImage();
     if(ui->mayflyCheckBox->isChecked() || ui->chironomidaeCheckBox->isChecked())
@@ -259,28 +258,28 @@ void CounterForm::setImageSize(double ratio)
 
 void CounterForm::on_zoomVerticalSlider_valueChanged(int value)
 {
-    QMatrix matrix = ui->imageGraphicsView->matrix().inverted();
-    QRectF visibleRect = matrix.mapRect(ui->imageGraphicsView->viewport()->rect());
-    QRectF rect = ui->imageGraphicsView->viewport()->rect();
-
-    double zoom = qMin<double>(visibleRect.width() / rect.width(), visibleRect.height() / rect.height());
-    zoom *= value / 100.0;
-
-    ui->imageGraphicsView->scale(zoom, zoom);
+    if((ui->mayflyCheckBox->isChecked() || ui->chironomidaeCheckBox->isChecked()) && penSize < ui->imageGraphicsView->height()/2.0 && penSize > 10){
+        penSize = (double)value;
+        setCursorImage(penSize);
+    }
 }
 
 void CounterForm::on_originalSizePushButton_clicked()
 {
-    ui->zoomVerticalSlider->setValue(100);
+    ui->imageGraphicsView->scale(1.0/zoom, 1.0/zoom);
+    zoom = 1;
 }
 
 void CounterForm::on_fiToWindowPushButton_clicked()
 {
+    ui->imageGraphicsView->scale(1.0/zoom, 1.0/zoom);
+
     QRectF imageRect = currentImage.rect();
     QRectF rect = ui->imageGraphicsView->viewport()->rect();
-    double zoom = qMin<double>(rect.width() / imageRect.width(), rect.height() / imageRect.height());
+    double fitSize = qMin<double>(rect.width() / imageRect.width(), rect.height() / imageRect.height());
 
-    ui->zoomVerticalSlider->setValue(zoom * 100.0);
+    ui->imageGraphicsView->scale(fitSize, fitSize);
+    zoom = fitSize;
 }
 
 void CounterForm::on_savePushButton_clicked()
