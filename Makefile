@@ -1726,70 +1726,7 @@ obj/mayflycounter.o: mayflycounter.cpp mayflycounter.h \
 		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qicon.h \
-		ui_mayflycounter.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/QVariant \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QAction \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qaction.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qactiongroup.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QApplication \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qapplication.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qcoreapplication.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qeventloop.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qguiapplication.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qinputmethod.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QButtonGroup \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qbuttongroup.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QGridLayout \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qgridlayout.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qlayout.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qboxlayout.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QHeaderView \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qheaderview.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractitemview.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qframe.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qabstractitemmodel.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qitemselectionmodel.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qstyleoption.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qvalidator.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qregularexpression.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qslider.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractslider.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qstyle.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qtabbar.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qrubberband.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QMenuBar \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qmenubar.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qmenu.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QStatusBar \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qstatusbar.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QToolBar \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qtoolbar.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QWidget \
-		counterform.h \
-		addgroupsdialog.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QDialog \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qdialog.h \
-		exportdialog.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QGraphicsScene \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qgraphicsscene.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qpen.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/QPainter \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qpainter.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qtextoption.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/QTimer \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qtimer.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qbasictimer.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QFileDialog \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qfiledialog.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qdir.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qfileinfo.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/QCursor \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/QTextStream
+		ui/ui_mayflycounter.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/mayflycounter.o mayflycounter.cpp
 
 obj/counterform.o: counterform.cpp counterform.h \
@@ -1916,61 +1853,7 @@ obj/counterform.o: counterform.cpp counterform.h \
 		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qfileinfo.h \
 		../../../../Qt5.6/5.6/gcc_64/include/QtGui/QCursor \
 		../../../../Qt5.6/5.6/gcc_64/include/QtCore/QTextStream \
-		ui_counterform.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/QVariant \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QAction \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qaction.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qicon.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qactiongroup.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QApplication \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qapplication.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qcoreapplication.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qeventloop.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qguiapplication.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qinputmethod.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QButtonGroup \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qbuttongroup.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QCheckBox \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qcheckbox.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractbutton.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QGridLayout \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qgridlayout.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qlayout.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qboxlayout.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QHBoxLayout \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QHeaderView \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qheaderview.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractitemview.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qframe.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qabstractitemmodel.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qitemselectionmodel.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qstyleoption.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qvalidator.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qregularexpression.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qslider.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractslider.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qstyle.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qtabbar.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qtabwidget.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qrubberband.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QPushButton \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qpushbutton.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QSlider \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QSpacerItem \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QTableWidget \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qtablewidget.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qtableview.h \
-		imagegraphicsviewform.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QGraphicsView \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qgraphicsview.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qscrollarea.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/QMouseEvent \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/QWheelEvent \
+		ui/ui_counterform.h \
 		communicationsdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/counterform.o counterform.cpp
 
@@ -2090,37 +1973,7 @@ obj/imagegraphicsviewform.o: imagegraphicsviewform.cpp imagegraphicsviewform.h \
 		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qgraphicsscene.h \
 		../../../../Qt5.6/5.6/gcc_64/include/QtGui/QMouseEvent \
 		../../../../Qt5.6/5.6/gcc_64/include/QtGui/QWheelEvent \
-		ui_imagegraphicsviewform.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/QVariant \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QAction \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qaction.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qicon.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qactiongroup.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QApplication \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qapplication.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qcoreapplication.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qeventloop.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qguiapplication.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qinputmethod.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QButtonGroup \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qbuttongroup.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QHeaderView \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qheaderview.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractitemview.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qabstractitemmodel.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qitemselectionmodel.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qstyleoption.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qvalidator.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qregularexpression.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qslider.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractslider.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qstyle.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qtabbar.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qtabwidget.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qrubberband.h
+		ui/ui_imagegraphicsviewform.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/imagegraphicsviewform.o imagegraphicsviewform.cpp
 
 obj/communicationsdialog.o: communicationsdialog.cpp communicationsdialog.h \
@@ -2229,48 +2082,7 @@ obj/communicationsdialog.o: communicationsdialog.cpp communicationsdialog.h \
 		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qfiledevice.h \
 		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qvector2d.h \
 		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qtouchdevice.h \
-		ui_communicationsdialog.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/QVariant \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QAction \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qaction.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qicon.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qactiongroup.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QApplication \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qapplication.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qcoreapplication.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qeventloop.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qguiapplication.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qinputmethod.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QButtonGroup \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qbuttongroup.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QDialogButtonBox \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QGridLayout \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qgridlayout.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qlayout.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qboxlayout.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QHeaderView \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qheaderview.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractitemview.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qframe.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qabstractitemmodel.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qitemselectionmodel.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qstyleoption.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qvalidator.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qregularexpression.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qslider.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractslider.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qstyle.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qtabbar.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qtabwidget.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qrubberband.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QLabel \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qlabel.h
+		ui/ui_communicationsdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/communicationsdialog.o communicationsdialog.cpp
 
 obj/addgroupsdialog.o: addgroupsdialog.cpp addgroupsdialog.h \
@@ -2379,54 +2191,7 @@ obj/addgroupsdialog.o: addgroupsdialog.cpp addgroupsdialog.h \
 		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qfiledevice.h \
 		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qvector2d.h \
 		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qtouchdevice.h \
-		ui_addgroupsdialog.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/QVariant \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QAction \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qaction.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qicon.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qactiongroup.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QApplication \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qapplication.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qcoreapplication.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qeventloop.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qguiapplication.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qinputmethod.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QButtonGroup \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qbuttongroup.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QDialogButtonBox \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QGridLayout \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qgridlayout.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qlayout.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qboxlayout.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QHeaderView \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qheaderview.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractitemview.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qframe.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qabstractitemmodel.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qitemselectionmodel.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qstyleoption.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qvalidator.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qregularexpression.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qslider.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractslider.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qstyle.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qtabbar.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qtabwidget.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qrubberband.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QLabel \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qlabel.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QLineEdit \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qlineedit.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qtextcursor.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qtextformat.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qpen.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qtextoption.h
+		ui/ui_addgroupsdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/addgroupsdialog.o addgroupsdialog.cpp
 
 obj/exportdialog.o: exportdialog.cpp exportdialog.h \
@@ -2535,47 +2300,7 @@ obj/exportdialog.o: exportdialog.cpp exportdialog.h \
 		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qfiledevice.h \
 		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qvector2d.h \
 		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qtouchdevice.h \
-		ui_exportdialog.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/QVariant \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QAction \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qaction.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qicon.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qactiongroup.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QApplication \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qapplication.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qcoreapplication.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qeventloop.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qguiapplication.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qinputmethod.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QButtonGroup \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qbuttongroup.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QGridLayout \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qgridlayout.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qlayout.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qboxlayout.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QHeaderView \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qheaderview.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractitemview.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qframe.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qabstractitemmodel.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qitemselectionmodel.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qstyleoption.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtGui/qvalidator.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtCore/qregularexpression.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qslider.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractslider.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qstyle.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qtabbar.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qtabwidget.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qrubberband.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/QPushButton \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qpushbutton.h \
-		../../../../Qt5.6/5.6/gcc_64/include/QtWidgets/qabstractbutton.h
+		ui/ui_exportdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/exportdialog.o exportdialog.cpp
 
 obj/moc_mayflycounter.o: moc/moc_mayflycounter.cpp 

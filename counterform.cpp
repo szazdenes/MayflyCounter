@@ -7,6 +7,11 @@ CounterForm::CounterForm(QWidget *parent) :
     ui(new Ui::CounterForm)
 {
     ui->setupUi(this);
+
+    connect(ui->imageGraphicsView, &ImageGraphicsViewForm::signalWheelScrolledDown, this, &CounterForm::slotWheelScrolledDown);
+    connect(ui->imageGraphicsView, &ImageGraphicsViewForm::signalWheelScrolledUp, this, &CounterForm::slotWheelScrolledUp);
+    connect(ui->imageGraphicsView, &ImageGraphicsViewForm::signalMouseMoved, this, &CounterForm::slotMouseMoved);
+
     ui->countTableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->countTableWidget->setHorizontalHeaderLabels(QStringList() << "Picture" << ui->mayflyCheckBox->text() << ui->chironomidaeCheckBox->text());
 
@@ -53,7 +58,7 @@ void CounterForm::slotRightButtonPressed()
 void CounterForm::slotLeftButtonPressed(QPointF pos)
 {
     lastPos = pos;
-    double size = ui->zoomVerticalSlider->value() / 100.0;
+    double size = zoom;
     painter.begin(&mask);
     if(ui->mayflyCheckBox->isChecked()){
         pen.setColor(Qt::blue);
@@ -76,18 +81,22 @@ void CounterForm::slotLeftButtonPressed(QPointF pos)
 
 void CounterForm::slotWheelScrolledUp()
 {
-    if(penSize < ui->imageGraphicsView->height()/2.0){
+    setImageSize(1.1);
+    /*if((ui->mayflyCheckBox->isChecked() || ui->chironomidaeCheckBox->isChecked()) && penSize < ui->imageGraphicsView->height()/2.0){
         penSize *= 1.1;
         setCursorImage(penSize);
-    }
+    }*/
+
 }
 
 void CounterForm::slotWheelScrolledDown()
 {
-    if(penSize > 15){
+    setImageSize(0.9);
+    /*if((ui->mayflyCheckBox->isChecked() || ui->chironomidaeCheckBox->isChecked()) && penSize > 15){
         penSize *= 0.9;
         setCursorImage(penSize);
-    }
+    }*/
+
 }
 
 void CounterForm::slotDialogAccepted()
@@ -158,19 +167,14 @@ void CounterForm::on_mayflyCheckBox_toggled(bool checked)
         ui->mayflyCheckBox->setChecked(checked);
         ui->chironomidaeCheckBox->setChecked(false);
         setCursorImage(penSize);
-        connect(ui->imageGraphicsView, SIGNAL(signalMouseMoved(QPointF)), this, SLOT(slotMouseMoved(QPointF)));
-        connect(ui->imageGraphicsView, SIGNAL(signalLeftButtonPressed(QPointF)), this, SLOT(slotLeftButtonPressed(QPointF)));
-        connect(ui->imageGraphicsView, SIGNAL(signalRightButtonPressed()), this, SLOT(slotRightButtonPressed()));
-        connect(ui->imageGraphicsView, SIGNAL(signalWheelScrolledDown()), this, SLOT(slotWheelScrolledDown()));
-        connect(ui->imageGraphicsView, SIGNAL(signalWheelScrolledUp()), this, SLOT(slotWheelScrolledUp()));
+        connect(ui->imageGraphicsView, &ImageGraphicsViewForm::signalLeftButtonPressed, this, &CounterForm::slotLeftButtonPressed);
+        connect(ui->imageGraphicsView, &ImageGraphicsViewForm::signalRightButtonPressed, this, &CounterForm::slotRightButtonPressed);
+
     }
     else{
         ui->imageGraphicsView->unsetCursor();
-        disconnect(ui->imageGraphicsView, SIGNAL(signalMouseMoved(QPointF)), this, SLOT(slotMouseMoved(QPointF)));
-        disconnect(ui->imageGraphicsView, SIGNAL(signalLeftButtonPressed(QPointF)), this, SLOT(slotLeftButtonPressed(QPointF)));
-        disconnect(ui->imageGraphicsView, SIGNAL(signalRightButtonPressed()), this, SLOT(slotRightButtonPressed()));
-        disconnect(ui->imageGraphicsView, SIGNAL(signalWheelScrolledDown()), this, SLOT(slotWheelScrolledDown()));
-        disconnect(ui->imageGraphicsView, SIGNAL(signalWheelScrolledUp()), this, SLOT(slotWheelScrolledUp()));
+        disconnect(ui->imageGraphicsView, &ImageGraphicsViewForm::signalLeftButtonPressed, this, &CounterForm::slotLeftButtonPressed);
+        disconnect(ui->imageGraphicsView, &ImageGraphicsViewForm::signalRightButtonPressed, this, &CounterForm::slotRightButtonPressed);
     }
 
 
@@ -183,19 +187,13 @@ void CounterForm::on_chironomidaeCheckBox_toggled(bool checked)
         ui->chironomidaeCheckBox->setChecked(checked);
         ui->mayflyCheckBox->setChecked(false);
         setCursorImage(penSize);
-        connect(ui->imageGraphicsView, SIGNAL(signalMouseMoved()), this, SLOT(slotMouseMoved()));
-        connect(ui->imageGraphicsView, SIGNAL(signalLeftButtonPressed(QPointF)), this, SLOT(slotLeftButtonPressed(QPointF)));
-        connect(ui->imageGraphicsView, SIGNAL(signalRightButtonPressed()), this, SLOT(slotRightButtonPressed()));
-        connect(ui->imageGraphicsView, SIGNAL(signalWheelScrolledDown()), this, SLOT(slotWheelScrolledDown()));
-        connect(ui->imageGraphicsView, SIGNAL(signalWheelScrolledUp()), this, SLOT(slotWheelScrolledUp()));
+        connect(ui->imageGraphicsView, &ImageGraphicsViewForm::signalLeftButtonPressed, this, &CounterForm::slotLeftButtonPressed);
+        connect(ui->imageGraphicsView, &ImageGraphicsViewForm::signalRightButtonPressed, this, &CounterForm::slotRightButtonPressed);
     }
     else{
         ui->imageGraphicsView->unsetCursor();
-        disconnect(ui->imageGraphicsView, SIGNAL(signalMouseMoved()), this, SLOT(slotMouseMoved()));
-        disconnect(ui->imageGraphicsView, SIGNAL(signalLeftButtonPressed(QPointF)), this, SLOT(slotLeftButtonPressed(QPointF)));
-        disconnect(ui->imageGraphicsView, SIGNAL(signalRightButtonPressed()), this, SLOT(slotRightButtonPressed()));
-        disconnect(ui->imageGraphicsView, SIGNAL(signalWheelScrolledDown()), this, SLOT(slotWheelScrolledDown()));
-        disconnect(ui->imageGraphicsView, SIGNAL(signalWheelScrolledUp()), this, SLOT(slotWheelScrolledUp()));
+        disconnect(ui->imageGraphicsView, &ImageGraphicsViewForm::signalLeftButtonPressed, this, &CounterForm::slotLeftButtonPressed);
+        disconnect(ui->imageGraphicsView, &ImageGraphicsViewForm::signalRightButtonPressed, this, &CounterForm::slotRightButtonPressed);
     }
 }
 
@@ -208,6 +206,7 @@ void CounterForm::on_loadPushButton_clicked()
     mask2 = QImage(ui->imageGraphicsView->viewport()->size(), QImage::Format_ARGB32);
     mask2.fill(Qt::transparent);
     penSize = (double)currentImage.height() / 50.0;
+    zoom =1;
 
     refreshImage();
     if(ui->mayflyCheckBox->isChecked() || ui->chironomidaeCheckBox->isChecked())
@@ -252,6 +251,12 @@ void CounterForm::setCursorImage(double size)
     ui->imageGraphicsView->setCursor(cursor);
 }
 
+void CounterForm::setImageSize(double ratio)
+{
+    ui->imageGraphicsView->scale(ratio, ratio);
+    zoom *= ratio;
+}
+
 void CounterForm::on_zoomVerticalSlider_valueChanged(int value)
 {
     QMatrix matrix = ui->imageGraphicsView->matrix().inverted();
@@ -281,15 +286,15 @@ void CounterForm::on_fiToWindowPushButton_clicked()
 void CounterForm::on_savePushButton_clicked()
 {
     CommunicationsDialog dialog;
-    connect(&dialog, SIGNAL(accepted()), this, SLOT(slotDialogAccepted()));
+    connect(&dialog, &CommunicationsDialog::accepted, this, &CounterForm::slotDialogAccepted);
     dialog.exec();
 }
 
 void CounterForm::on_exportPushButton_clicked()
 {
     ExportDialog dialog(this);
-    connect(&dialog, SIGNAL(signalExportNewFile()), this, SLOT(slotExportNewFile()));
-    connect(&dialog, SIGNAL(signalExportAppendFile()), this, SLOT(slotExportAppendFile()));
+    connect(&dialog, &ExportDialog::signalExportNewFile, this, &CounterForm::slotExportNewFile);
+    connect(&dialog, &ExportDialog::signalExportAppendFile, this, &CounterForm::slotExportAppendFile);
     dialog.exec();
 }
 
@@ -303,8 +308,8 @@ void CounterForm::slotTimeOut()
 void CounterForm::on_addGroupPushButton_clicked()
 {
     AddGroupsDialog dialog(this);
-    connect(&dialog, SIGNAL(signalFirstGroupSet(QString)), this, SLOT(slotFirstGroupSet(QString)));
-    connect(&dialog, SIGNAL(signalSecondGroupSet(QString)), this, SLOT(slotSecondGroupSet(QString)));
+    connect(&dialog, &AddGroupsDialog::signalFirstGroupSet, this, &CounterForm::slotFirstGroupSet);
+    connect(&dialog, &AddGroupsDialog::signalSecondGroupSet, this, &CounterForm::slotSecondGroupSet);
     dialog.exec();
 }
 

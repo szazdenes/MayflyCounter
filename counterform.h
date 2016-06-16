@@ -65,12 +65,14 @@ private:
     double chirNo;
     bool rightButtonClicked;
     QTimer timer;
+    double zoom;
 
     QFile exportFile;
     QTextStream exportStream;
 
     void refreshImage();
     void setCursorImage(double size);
+    void setImageSize(double ratio);
 };
 
 #endif // COUNTERFORM_H
