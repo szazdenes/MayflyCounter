@@ -275,7 +275,7 @@ void CounterForm::setImageSize(double ratio)
 
 void CounterForm::on_zoomVerticalSlider_valueChanged(int value)
 {
-    if((ui->mayflyCheckBox->isChecked() || ui->chironomidaeCheckBox->isChecked()) && penSize <= ui->imageGraphicsView->height()/2.0 && penSize >= 10){
+    if(ui->mayflyCheckBox->isChecked() || ui->chironomidaeCheckBox->isChecked()){
         penSize = (double)value;
         setCursorImage(penSize);
     }
