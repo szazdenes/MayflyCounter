@@ -97,7 +97,7 @@
      <item>
       <widget class="QPushButton" name="addGroupPushButton">
        <property name="text">
-        <string>Add Groups</string>
+        <string>Rename Groups</string>
        </property>
       </widget>
      </item>

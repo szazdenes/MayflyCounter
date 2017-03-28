@@ -59,16 +59,17 @@ private:
     double penSize;
     QPainter painter;
     QPen pen;
-    QPointF lastPos;
     QCursor cursor;
     double mayflyNo;
     double chirNo;
-    bool rightButtonClicked;
     QTimer timer;
     double zoom;
 
     QFile exportFile;
     QTextStream exportStream;
+
+    QList<QPointF> group1PosList, group2PosList;
+    QList<double> size1List, size2List, penSize1List, penSize2List;
 
     void refreshImage();
     void setCursorImage(double size);

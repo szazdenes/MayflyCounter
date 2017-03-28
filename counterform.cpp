@@ -21,7 +21,6 @@ CounterForm::CounterForm(QWidget *parent) :
     ui->imageGraphicsView->setTransformationAnchor(QGraphicsView::AnchorViewCenter);
 
     pen.setWidth(5);
-    rightButtonClicked = false;
 }
 
 CounterForm::~CounterForm()
@@ -36,40 +35,53 @@ void CounterForm::slotMouseMoved(QPointF pos)
 
 void CounterForm::slotRightButtonPressed()
 {
-    double size = zoom;
     painter.begin(&mask);
     pen.setColor(Qt::transparent);
     painter.setPen(pen);
     painter.setCompositionMode(QPainter::CompositionMode_Source);
-    painter.drawEllipse(lastPos.x() - (penSize / size / 2.0), lastPos.y() - (penSize / size / 2.0), penSize / size, penSize / size);
+    QPointF toRemove;
+    double currentSize, currentPenSize;
+
+    if(ui->mayflyCheckBox->isChecked() && !group1PosList.isEmpty()){
+        mayflyNo--;
+        toRemove = group1PosList.takeLast();
+        currentSize = size1List.takeLast();
+        currentPenSize = penSize1List.takeLast();
+        ui->countTableWidget->setItem(ui->countTableWidget->rowCount()-1, 1, new QTableWidgetItem(QString::number(mayflyNo)));
+    }
+    else if(ui->chironomidaeCheckBox->isChecked() && !group2PosList.isEmpty()){
+        chirNo--;
+        toRemove = group2PosList.takeLast();
+        currentSize = size2List.takeLast();
+        currentPenSize = penSize2List.takeLast();
+        ui->countTableWidget->setItem(ui->countTableWidget->rowCount()-1, 2, new QTableWidgetItem(QString::number(chirNo)));
+    }
+    else
+        return;
+
+    painter.drawEllipse(toRemove.x() - (currentPenSize / currentSize / 2.0), toRemove.y() - (currentPenSize / currentSize / 2.0), currentPenSize / currentSize, currentPenSize / currentSize);
     painter.end();
     refreshImage();
-
-    if (rightButtonClicked == false){
-        if(ui->mayflyCheckBox->isChecked())
-            mayflyNo--;
-            ui->countTableWidget->setItem(ui->countTableWidget->rowCount()-1, 1, new QTableWidgetItem(QString::number(mayflyNo)));
-
-        if(ui->chironomidaeCheckBox->isChecked())
-            chirNo--;
-            ui->countTableWidget->setItem(ui->countTableWidget->rowCount()-1, 2, new QTableWidgetItem(QString::number(chirNo)));
-    }
-    rightButtonClicked = true;
 }
 
 void CounterForm::slotLeftButtonPressed(QPointF pos)
 {
-    lastPos = pos;
     double size = zoom;
     painter.begin(&mask);
     if(ui->mayflyCheckBox->isChecked()){
         pen.setColor(Qt::blue);
         mayflyNo++;
+        group1PosList.append(pos);
+        size1List.append(size);
+        penSize1List.append(penSize);
         ui->countTableWidget->setItem(ui->countTableWidget->rowCount()-1, 1, new QTableWidgetItem(QString::number(mayflyNo)));
     }
     if(ui->chironomidaeCheckBox->isChecked()){
         pen.setColor(Qt::green);
         chirNo++;
+        group2PosList.append(pos);
+        size2List.append(size);
+        penSize2List.append(penSize);
         ui->countTableWidget->setItem(ui->countTableWidget->rowCount()-1, 2, new QTableWidgetItem(QString::number(chirNo)));
     }
     painter.setPen(pen);
@@ -77,8 +89,6 @@ void CounterForm::slotLeftButtonPressed(QPointF pos)
     painter.drawEllipse(pos.x() - (penSize / size / 2.0), pos.y() - (penSize / size / 2.0), penSize / size, penSize / size);
     painter.end();
     refreshImage();
-
-    rightButtonClicked = false;
 }
 
 void CounterForm::slotWheelScrolledUp()
@@ -193,6 +203,13 @@ void CounterForm::on_chironomidaeCheckBox_toggled(bool checked)
 
 void CounterForm::on_loadPushButton_clicked()
 {
+    group1PosList.clear();
+    group2PosList.clear();
+    size1List.clear();
+    size2List.clear();
+    penSize1List.clear();
+    penSize2List.clear();
+
     ui->imageGraphicsView->scale(1.0/zoom, 1.0/zoom);
     zoom =1;
     openFileName = QFileDialog::getOpenFileName(this, QDir::currentPath());
