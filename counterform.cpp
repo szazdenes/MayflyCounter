@@ -36,7 +36,7 @@ void CounterForm::slotMouseMoved(QPointF pos)
 
 void CounterForm::slotRightButtonPressed()
 {
-    double size = ui->zoomVerticalSlider->value() / 100.0;
+    double size = zoom;
     painter.begin(&mask);
     pen.setColor(Qt::transparent);
     painter.setPen(pen);
@@ -258,7 +258,7 @@ void CounterForm::setImageSize(double ratio)
 
 void CounterForm::on_zoomVerticalSlider_valueChanged(int value)
 {
-    if((ui->mayflyCheckBox->isChecked() || ui->chironomidaeCheckBox->isChecked()) && penSize < ui->imageGraphicsView->height()/2.0 && penSize > 10){
+    if((ui->mayflyCheckBox->isChecked() || ui->chironomidaeCheckBox->isChecked()) && penSize <= ui->imageGraphicsView->height()/2.0 && penSize >= 10){
         penSize = (double)value;
         setCursorImage(penSize);
     }
